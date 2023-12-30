@@ -1,4 +1,4 @@
-package ai.deepar.deepar_example;
+package com.example.conflab;
 
 import static android.os.Environment.getExternalStoragePublicDirectory;
 
@@ -53,6 +53,7 @@ import ai.deepar.ar.ARTouchType;
 import ai.deepar.ar.CameraResolutionPreset;
 import ai.deepar.ar.DeepAR;
 import ai.deepar.ar.DeepARImageFormat;
+import ai.deepar.deepar_example.R;
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback, AREventListener {
 

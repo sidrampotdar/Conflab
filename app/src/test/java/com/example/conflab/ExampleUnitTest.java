@@ -1,4 +1,4 @@
-package ai.deepar.deepar_example;
+package com.example.conflab;
 
 import org.junit.Test;
 

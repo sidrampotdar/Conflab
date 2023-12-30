@@ -25,10 +25,10 @@
             android:required="false" />
 
         <activity
-            android:name=".BasicActivity"
+            android:name="com.example.conflab.BasicActivity"
             android:label="@string/title_activity_basic"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity"
+        <activity android:name="com.example.conflab.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
