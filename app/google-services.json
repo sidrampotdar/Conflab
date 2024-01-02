@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "359094053100",
+    "project_id": "conflab-6fecf",
+    "storage_bucket": "conflab-6fecf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359094053100:android:0ec54f458b35a83e945dc9",
+        "android_client_info": {
+          "package_name": "com.example.conflab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBItKOIwZg3Jjp_roeQQ40_w032BxL9hRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
