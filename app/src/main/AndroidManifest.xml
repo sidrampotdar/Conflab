@@ -28,9 +28,9 @@
         <activity
             android:name="com.example.conflab.LoginActivity"
             android:exported="false" />
-        <activity
-            android:name="com.example.conflab.LoginActivity2"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name="com.example.conflab.LoginActivity2"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".LoginActivity"
             android:exported="false" />

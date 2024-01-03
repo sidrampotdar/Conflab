@@ -125,7 +125,7 @@
         app:layout_constraintVertical_bias="0.777" />
 
     <EditText
-        android:id="@+id/rgemail"
+        android:id="@+id/edtTxtREmail"
         android:layout_width="259dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -142,7 +142,7 @@
         app:layout_constraintVertical_bias="0.572" />
 
     <EditText
-        android:id="@+id/rgpassword"
+        android:id="@+id/edtTxtRPassword"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -159,7 +159,7 @@
         app:layout_constraintVertical_bias="0.675" />
 
     <EditText
-        android:id="@+id/rgrepassword"
+        android:id="@+id/edtTxtPasswordx2"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -176,11 +176,12 @@
         app:layout_constraintVertical_bias="0.777" />
 
     <Button
-        android:id="@+id/signupbutton"
+        android:id="@+id/btnSignUp"
         android:layout_width="@dimen/_250sdp"
         android:layout_height="@dimen/_45sdp"
         android:backgroundTint="@color/black"
-        android:text="signup"
+        android:textColor="@color/white"
+        android:text="SIGNUP"
         android:textSize="@dimen/_20sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -190,7 +191,7 @@
         app:layout_constraintVertical_bias="0.892" />
 
     <TextView
-        android:id="@+id/loginbut"
+        android:id="@+id/txtLogin"
         android:layout_width="@dimen/_124sdp"
         android:layout_height="24dp"
         android:gravity="center"
@@ -205,7 +206,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <EditText
-        android:id="@+id/rgusername"
+        android:id="@+id/edtTxtUName"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
