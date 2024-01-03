@@ -25,38 +25,12 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-       new  Handler().postDelayed(new Runnable() {
-           @Override
-           public void run() {
-               startActivity(new Intent(SplashActivity.this,MainActivity.class));
-               finish();
-           }
-       },3000);
-//
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//// Create a new user with a first and last name
-//        Map<String, Object> user = new HashMap<>();
-//        user.put("first", "Kiran");
-//        user.put("last", "Kamate");
-//        user.put("born", 2005);
-//
-//// Add a new document with a generated ID
-//        db.collection("users")
-//                .add(user)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//                     //   Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-//                        Toast.makeText(SplashActivity.this,"Successfull",Toast.LENGTH_LONG).show();
-//
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                 //       Log.w(TAG, "Error adding document", e);
-//                        Toast.makeText(SplashActivity.this,"Failed",Toast.LENGTH_LONG).show();
-//                    }
-//                });
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity.this,MainActivity.class));
+            }
+        },3000);
+
     }
 }
