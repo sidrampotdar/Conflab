@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,13 +44,17 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseDatabase database;
     FirebaseStorage storage;
 
-
+    ProgressDialog progressDialog;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Creating The Account");
+        progressDialog.setCancelable(false);
 
         edtTxtUName=findViewById(R.id.edtTxtUName);
         edtTxtREmail=findViewById(R.id.edtTxtREmail);
@@ -72,19 +77,22 @@ public class RegisterActivity extends AppCompatActivity {
                 String cPassword=edtTxtRPassword2.getText().toString();
                 String status ="Hello World...";
                 if(TextUtils.isEmpty(name)||TextUtils.isEmpty(email)||TextUtils.isEmpty(password)||TextUtils.isEmpty(cPassword)){
-
+                    progressDialog.dismiss();
                     Toast.makeText(RegisterActivity.this, "Null Data", Toast.LENGTH_SHORT).show();
 
                 } else if(!email.matches(emailRegex)){
+                    progressDialog.dismiss();
                     edtTxtREmail.setError("Invalid Email...");
                     Toast.makeText(RegisterActivity.this, "Invalid Email...", Toast.LENGTH_SHORT).show();
                 } else if (!password.matches(cPassword)){
+                    progressDialog.dismiss();
                     edtTxtRPassword2.setText("Password does NOT match...");
                 } else {
                     auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                progressDialog.dismiss();
                                 String id=task.getResult().getUser().getUid();
                                 DatabaseReference reference=database.getReference().child("user").child(id);
                                 StorageReference storageReference=storage.getReference().child("Upload").child(id);
@@ -104,6 +112,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if(task.isSuccessful()){
                                                                     Intent intent =new Intent(RegisterActivity.this,MainActivity2.class);
+                                                                    progressDialog.show();
                                                                     startActivity(intent);
                                                                     finish();
 
@@ -129,6 +138,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
                                                 Intent intent =new Intent(RegisterActivity.this,MainActivity2.class);
+                                                progressDialog.show();
                                                 Toast.makeText(RegisterActivity.this, "Signed In Successfully...", Toast.LENGTH_SHORT).show();
 
                                                 startActivity(intent);

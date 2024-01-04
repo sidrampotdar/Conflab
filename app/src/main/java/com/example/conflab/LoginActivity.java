@@ -3,6 +3,7 @@ package com.example.conflab;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,12 +25,17 @@ EditText edtTxtEmail,edtTxtPassword;
 Button btnLonIn;
 TextView txtSignUp;
 FirebaseAuth auth;
+    android.app.ProgressDialog progressDialog;
 String emailRegex="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please Wait...");
+        progressDialog.setCancelable(false);
 
         edtTxtEmail=findViewById(R.id.edtTxtLogEmail);
         edtTxtPassword=findViewById(R.id.edtTxtLogPassword);
@@ -51,11 +57,14 @@ String emailRegex="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 //
 //                }
                 if(TextUtils.isEmpty(email)){
+                    progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this,"Invalid Email",Toast.LENGTH_LONG).show();
                 } else if(TextUtils.isEmpty(password)){
+                    progressDialog.dismiss();
                     Toast.makeText(LoginActivity.this,"Invalid Password",Toast.LENGTH_LONG).show();
                 }
               else  if(!email.matches(emailRegex)){
+                    progressDialog.dismiss();
                   edtTxtEmail.setError("Invalid Email");
 
                 }
@@ -67,6 +76,7 @@ String emailRegex="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                             if(task.isSuccessful()){
                                 try{
+                                    progressDialog.show();
                                     startActivity(new Intent(LoginActivity.this,MainActivity2.class));
                                       finish();
                                 } catch (Exception e) {
