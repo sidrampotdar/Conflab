@@ -21,6 +21,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -78,32 +79,33 @@ FirebaseAuth auth;
         });
         imglogout = findViewById(R.id.logoutimg);
 
-//        imglogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Dialog dialog = new Dialog(MainActivity2.this,R.style.dialoge);
-//                dialog.setContentView(R.layout.dialog_layout);
-//                Button no,yes;
-//                yes = dialog.findViewById(R.id.yesbnt);
-//                no = dialog.findViewById(R.id.nobnt);
-//                yes.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        FirebaseAuth.getInstance().signOut();
-//                        Intent intent = new Intent(MainActivity2.this,LoginActivity.class);
-//                        startActivity(intent);
-//                        finish();
-//                    }
-//                });
-//                no.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//                dialog.show();
-//            }
-//        });
+        imglogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(MainActivity2.this,R.style.dialoge);
+                dialog.setContentView(R.layout.dialog_layout);
+                Button no,yes;
+                yes = dialog.findViewById(R.id.yesbnt);
+                no = dialog.findViewById(R.id.nobnt);
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(MainActivity2.this, "Logged Out Successfully...", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity2.this,LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
 
 //        setbut.setOnClickListener(new View.OnClickListener() {
 //            @Override
