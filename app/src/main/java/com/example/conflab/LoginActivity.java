@@ -24,8 +24,7 @@ EditText edtTxtEmail,edtTxtPassword;
 Button btnLonIn;
 TextView txtSignUp;
 FirebaseAuth auth;
-String emailRegex="^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$";
-
+String emailRegex="[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +83,13 @@ String emailRegex="^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]
             }
         });
 
-
+txtSignUp.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+        finish();
+    }
+});
 
 
     }
