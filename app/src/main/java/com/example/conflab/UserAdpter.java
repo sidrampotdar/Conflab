@@ -45,17 +45,17 @@ public class UserAdpter extends RecyclerView.Adapter<UserAdpter.viewholder> {
         holder.userstatus.setText(users.status);
         Picasso.get().load(users.profilePic).into(holder.userimg);
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(mainActivity, chatwindo.class);
-//                intent.putExtra("nameeee",users.getUName());
-//                intent.putExtra("reciverImg",users.getProfilePic());
-//                intent.putExtra("uid",users.getUid());
-//                mainActivity.startActivity(intent);
-//
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mainActivity, ChatActivity.class);
+                intent.putExtra("uName",users.getUName());
+                intent.putExtra("recImg",users.getProfilePic());
+                intent.putExtra("UId",users.getUid());
+                mainActivity.startActivity(intent);
+
+            }
+        });
 
     }
 
