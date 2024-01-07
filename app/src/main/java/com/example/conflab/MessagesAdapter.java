@@ -34,8 +34,9 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         this.messagesAdpterArrayList = messagesAdpterArrayList;
     }
 
+
     @Override
-    public RecyclerView.@NonNull ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == ITEM_SEND){
             View view = LayoutInflater.from(context).inflate(R.layout.sender_layout, parent, false);
             return new senderVierwHolder(view);
@@ -47,7 +48,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder( RecyclerView.ViewHolder holder, int position) {
         MsgModel messages = messagesAdpterArrayList.get(position);
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

@@ -182,7 +182,7 @@
             android:id="@+id/btnSignUp"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="@dimen/_45sdp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/colorAccent"
             android:textColor="@color/white"
             android:text="SIGNUP"
             android:textSize="@dimen/_20sdp"

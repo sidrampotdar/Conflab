@@ -33,8 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
-FirebaseAuth auth;
-
+    FirebaseAuth auth;
     RecyclerView mainUserRecyclerView;
     UserAdpter  adapter;
     FirebaseDatabase database;
@@ -42,24 +41,27 @@ FirebaseAuth auth;
     ImageView imglogout;
     ImageView cumbut,setbut;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+       // getSupportActionBar().hide();
 
         database=FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
-
         cumbut = findViewById(R.id.camBut);
         setbut = findViewById(R.id.settingBut);
 
         DatabaseReference reference = database.getReference().child("user");
+
         usersArrayList = new ArrayList<>();
 
         mainUserRecyclerView = findViewById(R.id.mainUserRecyclerView);
         mainUserRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new UserAdpter(MainActivity2.this,usersArrayList);
         mainUserRecyclerView.setAdapter(adapter);
+
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,7 +93,6 @@ FirebaseAuth auth;
                     @Override
                     public void onClick(View v) {
                         FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(MainActivity2.this, "Logged Out Successfully...", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity2.this,LoginActivity.class);
                         startActivity(intent);
                         finish();
@@ -118,16 +119,14 @@ FirebaseAuth auth;
         cumbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(MainActivity2.this,MainActivity.class));
+                Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,10);
             }
         });
 
-
-
-
-        if (auth.getCurrentUser()==null){
-            startActivity(new Intent(MainActivity2.this,LoginActivity.class));
-            finish();
+        if (auth.getCurrentUser() == null){
+            Intent intent = new Intent(MainActivity2.this,LoginActivity.class);
+            startActivity(intent);
         }
 
     }

@@ -59,9 +59,6 @@ public class ChatActivity extends AppCompatActivity {
         reciverName = getIntent().getStringExtra("nameeee");
         reciverimg = getIntent().getStringExtra("reciverImg");
         reciverUid = getIntent().getStringExtra("uid");
-
-        messagesArrayList = new ArrayList<>();
-
         sendbtn = findViewById(R.id.sendbtnn);
         textmsg = findViewById(R.id.textmsg);
         reciverNName = findViewById(R.id.recivername);
@@ -69,13 +66,16 @@ public class ChatActivity extends AppCompatActivity {
         messageAdpter = findViewById(R.id.msgadpter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
+        messagesArrayList = new ArrayList<>();
+        Picasso.get().load(reciverimg).into(profile);
+        reciverNName.setText(reciverName);
+
         messageAdpter.setLayoutManager(linearLayoutManager);
         mmessagesAdpter = new MessagesAdapter(ChatActivity.this,messagesArrayList);
         messageAdpter.setAdapter(mmessagesAdpter);
 
 
-        Picasso.get().load(reciverimg).into(profile);
-        reciverNName.setText(""+reciverName);
+
 
         SenderUID =  firebaseAuth.getUid();
 
@@ -152,3 +152,4 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 }
+
